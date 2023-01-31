@@ -1,0 +1,71 @@
+{
+  "Navbar": {
+    "Home": "الصفحة الرئيسية",
+    "AboutUs": "من نحن",
+    "Events": "أنشطة",
+    "Publications": "إصدارات",
+    "ContactUs": "تواصل معنا",
+    "Support": "الدعم",
+    "Forms": "وثيقة التأمين",
+    "Howitworks": "كيف نعمل"
+  },
+  "Home": {
+    "LatestPublications": "أحدث الإصدارات",
+    "More": "المزيد...",
+    "UpcomingEvents": "فعاليات مستقبلية",
+    "ImportantEvents": "أهم الفعاليات",
+    "Reports": "من تقاريرنا الدورية"
+  },
+  "Footer": {
+    "ContactUs": "تواصل معنا",
+    "FollowUs": "تابعنا على",
+    "AboutUs": "من نحن",
+    "OurMissions": "رسالتنا",
+    "Directors": "مجلس الإدارة",
+    "Members": "أعضاء المركز",
+    "Team": "فريق العمل",
+    "Job": "وظائف خالية",
+    "Sitemap": "خريطة الموقع",
+    "Copyright": "جميع حقوق النشر محفوظة للمركز المصري للدراسات الاقتصادية 2019 ©."
+  },
+  "Publications": {
+    "PublicationNumber": "رقم الإصدار",
+    "Author": "الكاتب",
+    "Archives": "الأرشيـف"
+  },
+  "Search": {
+    "AdvancedSearch": "بحث متقدم",
+    "SearchKeyword": "كلمة البحث",
+    "Choose": "اختار قسماً او اكثر",
+    "ChooseName": "اختار اسم",
+    "Sitemap": "خريطة الموقع",
+    "NoResults": "لا توجد نتائج",
+    "Search": "بحث",
+    "Section": "القسم",
+    "Author": "الكاتب/المؤلف"
+  },
+  "Jobs": {
+    "Name": "الاسم",
+    "Email": "البريد الإلكتروني",
+    "CV": "السيرة الذاتية",
+    "Apply": "تقديم",
+    "Phone": "رقم الهاتف",
+    "Job": "الوظيفه",
+    "Description": "الوصف",
+    "Event": "الندوة المراد حضورها",
+    "ChooseEvent": "اختار ندوة",
+    "Attend": "تود الحضور؟ سجل الان",
+    "Register": "تسجيل حضور الفعاليات"
+  },
+  "Support": {
+    "Header": "برجاء كتابة رسالتك وسوف نقوم بالتواصل معكم قريباً",
+    "Write": "اكتب رسالتك",
+    "Send": "إرسال"
+  },
+  "Document": {
+    "Basic": " 1- بيانات أساسية",
+    "AdditionalInfo": "2- بيانات إضافية",
+    "AdditionalDangers": "3- مخاطر إضافية",
+    "Users": "4- المستفيدين"
+  }
+}

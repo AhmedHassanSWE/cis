@@ -1,0 +1,71 @@
+{
+  "Navbar": {
+    "Home": "Home",
+    "AboutUs": "About us",
+    "Events": "Events",
+    "ContactUs": "Contact Us",
+    "Publications": "Publications",
+    "Support": "Support",
+    "Forms": "Insurance Document",
+    "Howitworks": "How it works"
+  },
+  "Home": {
+    "LatestPublications": "Latest Publications",
+    "More": "More...",
+    "UpcomingEvents": "Upcoming Events",
+    "ImportantEvents": "Important Events",
+    "Reports": "Periodic Reports"
+  },
+  "Footer": {
+    "ContactUs": "Contact us",
+    "FollowUs": "Follow us on",
+    "AboutUs": "About us",
+    "OurMissions": "Our Missions",
+    "Directors": "Board of Directors",
+    "Members": "Members of ECES",
+    "Team": "ECES Team",
+    "Job": "Job Vacancies",
+    "Sitemap": "Sitemap",
+    "Copyright": "Copyright © 2019 The Egyptian Center for Economic Studies (ECES). All Rights Reserved."
+  },
+  "Publications": {
+    "PublicationNumber": "Publication Number",
+    "Author": "Author(s)",
+    "Archives": "Archives"
+  },
+  "Search": {
+    "AdvancedSearch": "Advanced Search",
+    "SearchKeyword": "Search Keyword",
+    "Choose": "Choose",
+    "ChooseName": "Choose Name",
+    "Sitemap": "Sitemap",
+    "NoResults": "No Results",
+    "Search": "Search",
+    "Section": "Section",
+    "Author": "Author(s)"
+  },
+  "Jobs": {
+    "Name": "Name",
+    "Email": "Email",
+    "CV": "CV",
+    "Apply": "Apply",
+    "Phone": "Phone",
+    "Job": "Job",
+    "Description": "Description",
+    "Event": "Event",
+    "ChooseEvent": "Choose Event",
+    "Attend": "Want to attend? Register Now",
+    "Register": "Event Attendance Registration"
+  },
+  "Support": {
+    "Header": "Write your message and we're goinig to contact you soon",
+    "Write": "Write your message",
+    "Send": "SEND"
+  },
+  "Document": {
+    "Basic": "1- Basic Information",
+    "AdditionalInfo": "2- Additional Information",
+    "AdditionalDangers": "3- Additional Dangers",
+    "Users": "4- Beneficiaries"
+  }
+}

@@ -1,0 +1,63 @@
+body {
+  background-color: #1c2228;
+}
+
+* {
+  font-family: Cairo !important;
+}
+.nav-logo {
+  max-height: 80px;
+  margin: 7px 0px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+a {
+  text-decoration: none;
+}
+
+.primary {
+  color: #d62a33;
+}
+.bg-primary {
+  background-color: #d62a33;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  background-color: transparent;
+  border: 1px solid #555;
+  width: 100%;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 8px;
+}
