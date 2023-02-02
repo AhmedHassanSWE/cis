@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
+import { t } from "i18next";
 import React from "react";
 import FileInput from "../../ui/forms/FileInput";
 import MultipleFilesInput from "../../ui/forms/MultipleFilesInput";
@@ -79,13 +80,13 @@ function UsersInfo() {
     <div>
       <Container>
         <Grid container>
-          <Grid item lg={6}>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
             <Box className="app-input-wrapper">
               <Typography style={{ marginBottom: "5px" }}>
-                {"عدد الورثة الشرعيين"}{" "}
-                {<span style={{ color: "red" }}>*</span>}
+                {t("Document.Number")} {<span style={{ color: "red" }}>*</span>}
               </Typography>
               <Select
+                style={{ width: "100%" }}
                 onChange={(e) => setPopleNumbr(e.target.value)}
                 color="secondary"
                 margin="0px 15px"
@@ -95,7 +96,7 @@ function UsersInfo() {
                 defaultValue={0}
               >
                 <MenuItem onChange value={0}>
-                  عدد الورثة الشرعيين
+                  {t("Document.Number")}
                 </MenuItem>
                 {numbersArray2.map((item, index) => {
                   return (
@@ -108,7 +109,11 @@ function UsersInfo() {
             </Box>
           </Grid>
           {peopleLength.map((item, index) => {
-            return <TextInput placeholder={`اسم الوريث رقم ${index + 1}`} />;
+            return (
+              <TextInput
+                placeholder={`${t("Document.NameNumber")} ${index + 1}`}
+              />
+            );
           })}
         </Grid>
         <div className="flex-center">
@@ -119,7 +124,7 @@ function UsersInfo() {
             variant="contained"
             color="primary"
           >
-            SUBMIT
+            {t("Document.Submit")}
           </LoadingButton>
         </div>
       </Container>

@@ -15,14 +15,8 @@ export const loginSchiema = [
 
 export const registerSchiema = [
   {
-    placeholder: "First Name",
-    name: "first_name",
-    type: "text",
-    required: true,
-  },
-  {
-    placeholder: "Last Name",
-    name: "last_name",
+    placeholder: "Name",
+    name: "name",
     type: "text",
     required: true,
   },
@@ -33,7 +27,13 @@ export const registerSchiema = [
     required: true,
   },
   {
-    placeholder: "Phone Number",
+    placeholder: "National ID",
+    name: "national_id",
+    type: "text",
+    required: true,
+  },
+  {
+    placeholder: "PhoneNumber",
     name: "phone",
     type: "number",
     required: true,
@@ -45,9 +45,8 @@ export const registerSchiema = [
     required: true,
   },
   {
-    placeholder: "Password Confirmation",
-    name: "password_confirmation",
+    placeholder: "PasswordConfirmation",
+    name: "confirm-password",
     type: "password",
-    required: true,
   },
 ];

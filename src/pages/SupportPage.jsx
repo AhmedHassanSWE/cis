@@ -35,7 +35,7 @@ function SupportPage() {
         </div>
         <Paper style={{ padding: "15px", marginTop: "20px" }}>
           <Typography textAlign="center" margin="20px" variant="h5">
-            الرسائل السابقة
+            {t("Support.RecentMessages")}
           </Typography>
           <div className="flex-start">
             <Typography

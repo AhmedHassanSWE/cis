@@ -7,7 +7,11 @@
     "ContactUs": "تواصل معنا",
     "Support": "الدعم",
     "Forms": "وثيقة التأمين",
-    "Howitworks": "كيف نعمل"
+    "Howitworks": "كيف نعمل",
+    "MyProfile": "الملف الشخصي",
+    "Profile": "الملف الشخصي",
+    "Logout": "تسجيل الخروج",
+    "QuickLinks": "الروابط"
   },
   "Home": {
     "LatestPublications": "أحدث الإصدارات",
@@ -60,12 +64,44 @@
   "Support": {
     "Header": "برجاء كتابة رسالتك وسوف نقوم بالتواصل معكم قريباً",
     "Write": "اكتب رسالتك",
-    "Send": "إرسال"
+    "Send": "إرسال",
+    "RecentMessages": "الرسائل السابقة"
   },
   "Document": {
     "Basic": " 1- بيانات أساسية",
     "AdditionalInfo": "2- بيانات إضافية",
     "AdditionalDangers": "3- مخاطر إضافية",
-    "Users": "4- المستفيدين"
+    "Users": "4- المستفيدين",
+    "Number": "عدد الورثة الشرعيين",
+    "NameNumber": "اسم الوريث رقم",
+    "Submit": "تأكيد"
+  },
+  "Profile": {
+    "Profile": "الملف الشخصي",
+    "EditProfile": "تعديل الملف الشخصي",
+    "PersonalInfo": "البيانات الشخصية",
+    "Documents": "الوثائق",
+    "PaymentHistory": "مدفوعاتي",
+    "Name": "الاسم",
+    "Age": "السن",
+    "Email": "البريد الإلكتروني",
+    "MembershipNumber": "رقم العضوية",
+    "DocumentNumber": "رقم الوثيقة",
+    "Price": "السعر",
+    "Service": "الخدمة",
+    "Status": "حالة الدفع"
+  },
+  "Auth": {
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة السر",
+    "FirstName": "الاسم الاول",
+    "LastName": "الاسم الاخير",
+    "PhoneNumber": "رقم الهاتف",
+    "PasswordConfirmation": "تأكيد كلمة السر",
+    "SignIn": "تسجيل الدخول",
+    "SignUp": "التسجيل",
+    "Already": "لديك حساب بالفعل؟",
+    "Dont": "ليس لديك حساب؟",
+    "ForgotPassword": "هل نسيت كلمة السر"
   }
 }

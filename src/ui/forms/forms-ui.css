@@ -6,3 +6,9 @@
   color: #d32f2f !important;
   margin-left: 10px !important;
 }
+
+@media (max-width: 800px) {
+  .app-input-wrapper {
+    margin: 10px 0px !important;
+  }
+}

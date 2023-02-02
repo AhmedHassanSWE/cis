@@ -18,6 +18,7 @@ function SelectInput({
   md,
   xs,
   sm,
+  options,
 }) {
   return (
     <Grid

@@ -15,11 +15,10 @@ import AdditionalInformation from "./AdditionalInformation";
 import AdditionalDangers from "./AdditionalDangers";
 import { t } from "i18next";
 import UsersInfo from "./UsersInfo";
+import { useSelector } from "react-redux";
 
 function Form() {
-  const numbersArray = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
+  const mode = useSelector((state) => state.theme.mode);
   const [fields, setFields] = React.useState({});
   const [value, setValue] = React.useState(0);
   const handleChange = (e) => {
@@ -76,28 +75,37 @@ function Form() {
   const locale = localStorage.getItem("i18nextLng");
   return (
     <div>
-      <Container>
-        <Card style={{ margin: "20px", padding: "15px" }}>
+      <Container className={mode === "dark" ? "dark" : "light"}>
+        <Card style={{ marginTop: "15px", padding: "15px" }}>
           <Typography variant="h4" style={{ textAlign: "center" }}>
             {t("Navbar.Forms")}
           </Typography>
           <TabContext value={value}>
             <div className="flex-center tabs-container">
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                <Tabs value={value} aria-label="basic tabs example">
+                <Tabs
+                  value={value}
+                  onChange={() => {}}
+                  variant="scrollable"
+                  scrollButtons="auto"
+                  aria-label="scrollable auto tabs example"
+                >
                   <Tab
                     onClick={() => setValue(0)}
                     label={t("Document.Basic")}
                   />
                   <Tab
+                    disabled
                     onClick={() => setValue(1)}
                     label={t("Document.AdditionalInfo")}
                   />
                   <Tab
+                    disabled
                     onClick={() => setValue(2)}
                     label={t("Document.AdditionalDangers")}
                   />
                   <Tab
+                    disabled
                     onClick={() => setValue(3)}
                     label={t("Document.Users")}
                   />

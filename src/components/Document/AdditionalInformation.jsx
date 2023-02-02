@@ -1,6 +1,7 @@
 import { LoadingButton } from "@mui/lab";
 import { Button, Card, Container, Grid, Typography } from "@mui/material";
 import axios from "axios";
+import { t } from "i18next";
 import React from "react";
 import FileInput from "../../ui/forms/FileInput";
 import MultipleFilesInput from "../../ui/forms/MultipleFilesInput";
@@ -117,7 +118,7 @@ function AdditionalInformation() {
             variant="contained"
             color="primary"
           >
-            SUBMIT
+            {t("Document.Submit")}
           </LoadingButton>
         </div>
       </Container>

@@ -13,12 +13,12 @@ function MyRouter() {
     <div className="container">
       <>
         <Routes>
-          <Route path="/" element={<h1>HOME PAGE</h1>} />
+          {/* <Route path="/" element={<h1>HOME PAGE</h1>} /> */}
+          <Route path="/" element={<ProfilePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/how" element={<HowitworksPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/form" element={<Form />} />
         </Routes>
       </>

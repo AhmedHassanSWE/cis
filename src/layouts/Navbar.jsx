@@ -12,20 +12,24 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { Brightness4Outlined, Brightness7Outlined } from "@mui/icons-material";
+import {
+  Brightness4Outlined,
+  Brightness7Outlined,
+  LightMode,
+} from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 import { emptyAction } from "../redux/actions/reusableActions";
-import { CHANGE_THEME_MODE } from "../redux/actions/types";
-import { useDispatch } from "react-redux";
+import { CHANGE_THEME_MODE, LOGOUT } from "../redux/actions/types";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import i18n from "../i18next";
 import { useTranslation } from "react-i18next";
 
 const pages = [
-  {
-    title: "Home",
-    path: "/",
-  },
+  // {
+  //   title: "MyProfile",
+  //   path: "/",
+  // },
   {
     title: "AboutUs",
     path: "/about",
@@ -52,13 +56,11 @@ const settings = [
     title: "Profile",
     path: "/prfile",
   },
-  {
-    title: "Logout",
-  },
 ];
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 function Navbar(props) {
+  const mode = useSelector((state) => state.theme.mode);
   const { t } = useTranslation();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -93,12 +95,11 @@ function Navbar(props) {
               marginRight: { xs: "0", lg: "18%" },
             }}
           >
-            <img
-              sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-              className="nav-logo"
-              src="./logo.png"
-            />
+            <Link to="/">
+              <img className="nav-logo" src="./logo.png" />
+            </Link>
           </Box>
+
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -129,20 +130,32 @@ function Navbar(props) {
               }}
             >
               {pages.map((page) => (
-                <Link to={page.path}>
+                <Link style={{ color: "#fff" }} to={page.path}>
                   <MenuItem
                     key={page.title}
                     onClick={handleCloseNavMenu}
                     style={{
-                      width: "100vw",
+                      width: "93vw",
                       color: "#d62a33 !important",
+                      display: "flex",
+                      justifyContent:
+                        locale === "ar" ? "flex-end" : "flex-start",
+                      marginRight: "30px",
                     }}
                   >
                     <Typography
                       style={{ color: "#d62a33 !important" }}
                       textAlign="center"
                     >
-                      <Link to={page.path}>{page.title}</Link>
+                      <Link
+                        style={{
+                          color: mode === "dark" ? "#fff" : "#d62a33",
+                          textAlign: "right",
+                        }}
+                        to={page.path}
+                      >
+                        {t(`Navbar.${page.title}`)}
+                      </Link>
                     </Typography>
                   </MenuItem>
                 </Link>
@@ -198,11 +211,12 @@ function Navbar(props) {
             onClick={() => dispatch(emptyAction(CHANGE_THEME_MODE))}
           >
             {theme.palette.mode === "dark" ? (
-              <Brightness7Outlined />
+              <LightMode />
             ) : (
               <Brightness4Outlined />
             )}
           </IconButton>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -226,14 +240,31 @@ function Navbar(props) {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link to="/profile">
+                <Link
+                  style={{ color: mode === "dark" ? "#fff" : "#555" }}
+                  to="/"
+                >
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting.title}</Typography>
+                    <Typography textAlign="center">
+                      {t(`Navbar.${setting.title}`)}
+                    </Typography>
                   </MenuItem>
                 </Link>
               ))}
+              <MenuItem onClick={() => dispatch(emptyAction(LOGOUT))}>
+                <Typography textAlign="center">{t(`Navbar.Logout`)}</Typography>
+              </MenuItem>
             </Menu>
           </Box>
+          <Link to="/">
+            <Box marginLeft="30px">
+              <img
+                className="nav-logo-mobile"
+                src="./logo.png"
+                style={{ height: "50px" }}
+              />
+            </Box>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>

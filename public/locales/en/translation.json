@@ -7,7 +7,11 @@
     "Publications": "Publications",
     "Support": "Support",
     "Forms": "Insurance Document",
-    "Howitworks": "How it works"
+    "Howitworks": "How it works",
+    "MyProfile": "My Profile",
+    "Profile": "Profile",
+    "Logout": "Logout",
+    "QuickLinks": "Quick Links"
   },
   "Home": {
     "LatestPublications": "Latest Publications",
@@ -60,12 +64,44 @@
   "Support": {
     "Header": "Write your message and we're goinig to contact you soon",
     "Write": "Write your message",
-    "Send": "SEND"
+    "Send": "SEND",
+    "RecentMessages": "Recent Messages"
   },
   "Document": {
     "Basic": "1- Basic Information",
     "AdditionalInfo": "2- Additional Information",
     "AdditionalDangers": "3- Additional Dangers",
-    "Users": "4- Beneficiaries"
+    "Users": "4- Beneficiaries",
+    "Number": "Number of legal heirs",
+    "NameNumber": "Name of heir number",
+    "Submit": "SUBMIT"
+  },
+  "Profile": {
+    "Profile": "Profile",
+    "EditProfile": "Edit Profile",
+    "PersonalInfo": "Personal Information",
+    "Documents": "Documents",
+    "PaymentHistory": "Payment History",
+    "Name": "Name",
+    "Age": "Age",
+    "Email": "Email",
+    "MembershipNumber": "Membership Number",
+    "DocumentNumber": "Document Number",
+    "Price": "Price",
+    "Service": "Service",
+    "Status": "Status"
+  },
+  "Auth": {
+    "Email": "Email",
+    "Password": "Password",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "PhoneNumber": "Phone Number",
+    "PasswordConfirmation": "Password Confirmation",
+    "SignIn": "Sign in",
+    "SignUp": "Sign Up",
+    "Already": "Already have an account?",
+    "Dont": "Don't have an account?",
+    "ForgotPassword": "Forgot Password?"
   }
 }

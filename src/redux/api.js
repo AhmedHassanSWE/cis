@@ -2,7 +2,7 @@ import axios from "axios";
 import store from "./store";
 
 const api = axios.create({
-  baseURL: "https://eces-glossary.com/public/api",
+  baseURL: "https://mahalatmasr.com/cis/public/api",
 });
 
 store.subscribe(() => {

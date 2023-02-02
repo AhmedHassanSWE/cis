@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { t } from "i18next";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -25,8 +26,8 @@ export default function ProfileInvoices() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Invoice Number</TableCell>
-            <TableCell align="left">Price</TableCell>
+            <TableCell>{t("Profile.DocumentNumber")}</TableCell>
+            <TableCell align="left">{t("Profile.Price")}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

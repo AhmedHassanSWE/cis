@@ -10,6 +10,7 @@ import { firstForm, formErrors, formSchiema } from "../../utils/FormSchiema";
 import { Edit } from "@mui/icons-material";
 import { Box, Tab, Tabs } from "@mui/material";
 import { TabContext, TabPanel } from "@mui/lab";
+import { t } from "i18next";
 
 function BasicInformation() {
   const [fields, setFields] = React.useState({});
@@ -115,7 +116,7 @@ function BasicInformation() {
             variant="contained"
             color="primary"
           >
-            SUBMIT
+            {t("Document.Submit")}
           </LoadingButton>
         </div>
       </Container>

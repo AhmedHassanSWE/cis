@@ -10,6 +10,10 @@ body {
   margin: 7px 0px;
 }
 
+.nav-logo-mobile {
+  display: none;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -60,4 +64,33 @@ textarea {
   padding: 10px;
   font-size: 18px;
   border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .nav-logo-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 650px) {
+  .tabs-container {
+    zoom: 70%;
+    margin-top: 30px;
+  }
+}
+.dark ::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.social-icon {
+  font-size: 30px !important;
+  margin: 0px 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.social-icon:hover {
+  scale: 1.1;
+  color: #d62a33;
+  transition: 0.3s ease;
 }

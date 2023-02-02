@@ -12,6 +12,8 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
+import Footer from "./layouts/Footer";
+import { useLocation } from "react-router-dom";
 
 const cacheRtl = createCache({
   key: "muirtl",
@@ -19,6 +21,7 @@ const cacheRtl = createCache({
 });
 
 function App() {
+  const user = useSelector((state) => state.auth?.user);
   const mode = useSelector((state) => state.theme.mode);
   const darkTheme = createTheme({
     palette: {
@@ -67,27 +70,34 @@ function App() {
     },
   });
 
-  const [auth, setAuth] = React.useState(true);
-
+  const auth = user?.token ? true : false;
+  // const auth = true;
   React.useEffect(() => {
     localStorage.setItem("NEXT", "EN");
   }, []);
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  console.log("USER", user);
 
   console.log("VITE LOCAL", localStorage.getItem("i18nextLng"));
   const locale = localStorage.getItem("i18nextLng");
   return locale !== "ar" ? (
-    <div className="App">
+    <div className={mode === "dark" ? "dark" : "light"}>
       <ThemeProvider theme={mode === "dark" ? darkTheme : lightTheme}>
         {auth ? (
           <div>
             {" "}
-            <Navbar setAuth={setAuth} />
+            <Navbar />
             <MyRouter />
-            <CssBaseline />{" "}
+            <CssBaseline /> <Footer />
           </div>
         ) : (
           <div>
-            <LoginPage setAuth={setAuth}></LoginPage>
+            <LoginPage></LoginPage>
             <CssBaseline />
           </div>
         )}
@@ -100,13 +110,14 @@ function App() {
           {auth ? (
             <div>
               {" "}
-              <Navbar setAuth={setAuth} />
+              <Navbar />
               <MyRouter />
-              <CssBaseline />{" "}
+              <Footer />
+              <CssBaseline />
             </div>
           ) : (
             <div>
-              <LoginPage setAuth={setAuth}></LoginPage>
+              <LoginPage></LoginPage>
               <CssBaseline />
             </div>
           )}
