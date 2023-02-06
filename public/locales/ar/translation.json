@@ -102,6 +102,14 @@
     "SignUp": "التسجيل",
     "Already": "لديك حساب بالفعل؟",
     "Dont": "ليس لديك حساب؟",
-    "ForgotPassword": "هل نسيت كلمة السر"
+    "ForgotPassword": "هل نسيت كلمة السر",
+    "NationalID": "الرقم القومي",
+    "Name": "الاسم",
+    "Code": "رمز التفعيل",
+    "PasswordChanged": "تم تغيير كلمة السر بنجاح",
+    "CheckEmail": "برجاء مراجعة بريدك الإلكتروني",
+    "LoggedSuccessfully": "تم تسجيل الدخول بنجاح",
+    "CreatedSuccessfully": "تم إنشاء الحساب بنجاح",
+    "ResetPassword": "تغيير كلمة السر"
   }
 }

@@ -50,25 +50,25 @@ export const firstForm = {
   formTitle_en: "New Document",
   formTitle_ar: "وثيقة جديدة",
   questions: [
-    {
-      title_en: "Document Type",
-      title_ar: "نوع الوثيقة",
-      type: "select",
-      name: "document_type",
-      required: true,
-      options: [
-        {
-          title_en: "Private Accidents",
-          title_ar: "حوادث شخصية",
-          id: 1,
-        },
-        {
-          title_en: "Loan Insurance",
-          title_ar: "تأمين قروض",
-          id: 2,
-        },
-      ],
-    },
+    // {
+    //   title_en: "Document Type",
+    //   title_ar: "نوع الوثيقة",
+    //   type: "select",
+    //   name: "document_type",
+    //   required: true,
+    //   options: [
+    //     {
+    //       title_en: "Private Accidents",
+    //       title_ar: "حوادث شخصية",
+    //       id: 1,
+    //     },
+    //     {
+    //       title_en: "Loan Insurance",
+    //       title_ar: "تأمين قروض",
+    //       id: 2,
+    //     },
+    //   ],
+    // },
     {
       title_en: "User Name",
       title_ar: "اسم المستفيد",

@@ -102,6 +102,14 @@
     "SignUp": "Sign Up",
     "Already": "Already have an account?",
     "Dont": "Don't have an account?",
-    "ForgotPassword": "Forgot Password?"
+    "ForgotPassword": "Forgot Password?",
+    "NationalID": "National ID",
+    "Name": "Name",
+    "Code": "Confirmation Code",
+    "PasswordChanged": "Password has been updated successfully",
+    "CheckEmail": "Check your email",
+    "LoggedSuccessfully": "You logged in successfully",
+    "CreatedSuccessfully": "Your email has been created successfully",
+    "ResetPassword": "Reset Password"
   }
 }

@@ -7,6 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import SupportPage from "./pages/SupportPage";
 import ContactUsPage from "./pages/ContactUsPage";
 import HowitworksPage from "./pages/HowitworksPage";
+import DocumentTypes from "./components/Document/DocumentTypes";
 
 function MyRouter() {
   return (
@@ -20,6 +21,7 @@ function MyRouter() {
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/how" element={<HowitworksPage />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/documents" element={<DocumentTypes />} />
         </Routes>
       </>
     </div>

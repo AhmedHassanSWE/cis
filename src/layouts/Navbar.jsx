@@ -44,7 +44,7 @@ const pages = [
   },
   {
     title: "Forms",
-    path: "/form",
+    path: "/documents",
   },
   {
     title: "ContactUs",

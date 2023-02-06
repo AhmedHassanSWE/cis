@@ -5,10 +5,10 @@ const api = axios.create({
   baseURL: "https://mahalatmasr.com/cis/public/api",
 });
 
-store.subscribe(() => {
-  const state = store.getState();
-  const token = state?.user?.token;
+const state = store.getState();
+const token = state;
 
+store.subscribe(() => {
   if (token) {
     api.defaults.headers.common.authorization = `Bearer ${token}`;
     axios.defaults.headers.post["Content-Type"] = "application/json";

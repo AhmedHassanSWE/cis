@@ -27,7 +27,7 @@ export const registerSchiema = [
     required: true,
   },
   {
-    placeholder: "National ID",
+    placeholder: "NationalID",
     name: "national_id",
     type: "text",
     required: true,
@@ -47,6 +47,32 @@ export const registerSchiema = [
   {
     placeholder: "PasswordConfirmation",
     name: "confirm-password",
+    type: "password",
+  },
+];
+
+export const forgetPasswordSchiema = [
+  {
+    placeholder: "Email",
+    name: "email",
+    type: "email",
+    required: true,
+  },
+  {
+    placeholder: "Code",
+    name: "code",
+    type: "text",
+    required: true,
+  },
+  {
+    placeholder: "Password",
+    name: "password",
+    type: "password",
+    required: true,
+  },
+  {
+    placeholder: "PasswordConfirmation",
+    name: "confirm_password",
     type: "password",
   },
 ];

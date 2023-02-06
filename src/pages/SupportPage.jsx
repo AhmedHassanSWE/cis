@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 function SupportPage() {
   const mode = useSelector((state) => state.theme.mode);
+  const locale = localStorage.getItem("i18nextLng");
   return (
     <div>
       <FadedHeader text={t("Navbar.Support")} img="./support.avif" />
@@ -28,7 +29,13 @@ function SupportPage() {
             size="large"
             fullWidth
             variant="contained"
-            endIcon={<Send />}
+            endIcon={
+              <Send
+                style={{
+                  transform: locale !== "ar" ? "scaleX(1)" : "scaleX(-1)",
+                }}
+              />
+            }
           >
             {t("Support.Send")}
           </LoadingButton>

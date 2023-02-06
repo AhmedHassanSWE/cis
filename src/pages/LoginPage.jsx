@@ -25,13 +25,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
 import { LoadingButton } from "@mui/lab";
+import AppModal from "../ui/AppModal";
+import ForgetPassword from "../components/ForgetPassword/ForgetPassword";
+import { toast } from "react-hot-toast";
+import PasswordInput from "../ui/PasswordInput";
 
 export default function LoginPage() {
   const [login, setLogin] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const formRef = React.useRef();
   const schiema = login ? loginSchiema : registerSchiema;
   const locale = localStorage.getItem("i18nextLng");
   const mode = useSelector((state) => state.theme.mode);
-  const [reChecked, setReChecked] = React.useState(false);
+  const [reChecked, setReChecked] = React.useState(null);
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [inputs, setInputs] = React.useState({});
@@ -39,11 +45,15 @@ export default function LoginPage() {
   const [loginError, setLoginError] = React.useState({});
   const [loading, setLoading] = React.useState(false);
   function handleRecaptchaChange(value) {
-    setReChecked(true);
+    setReChecked(value);
+    console.log("RE VALUE", value);
   }
+
+  console.log("RECHECKED", reChecked);
 
   React.useEffect(() => {
     setInputs({});
+    formRef.current.reset();
   }, [login]);
 
   const handleChange = (e) => {
@@ -59,7 +69,9 @@ export default function LoginPage() {
       reduxPost(
         "login",
         inputs,
-        () => {},
+        () => {
+          toast.success(t("Auth.LoggedSuccessfully"));
+        },
         setLoginError,
         setLoading,
         USER_LOGIN
@@ -74,6 +86,7 @@ export default function LoginPage() {
         "create-account",
         inputs,
         () => {
+          toast.success(t("Auth.CreatedSuccessfully"));
           setLogin(true);
         },
         setErr,
@@ -98,6 +111,12 @@ export default function LoginPage() {
       component="main"
       sx={{ height: "100vh" }}
     >
+      <AppModal
+        open={open}
+        setOpen={setOpen}
+        title={t("Auth.ResetPassword")}
+        body={<ForgetPassword setOpen={setOpen} />}
+      />
       <div
         style={
           locale === "ar"
@@ -164,7 +183,7 @@ export default function LoginPage() {
             {login ? t("Auth.SignIn") : t("Auth.SignUp")}
           </Typography>
           <Box>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form ref={formRef} onSubmit={(e) => handleSubmit(e)}>
               <Grid container>
                 {schiema.map((item, index) => {
                   return (
@@ -177,24 +196,45 @@ export default function LoginPage() {
                       xs={12}
                       key={index}
                     >
-                      <TextField
-                        autoFocus={index === 0 ? true : false}
-                        color="secondary"
-                        required
-                        aria-required
-                        margin="normal"
-                        fullWidth
-                        id={item.name}
-                        label={t(`Auth.${item.placeholder}`)}
-                        name={item.name}
-                        type={item.type}
-                        onChange={handleChange}
-                        error={err?.data?.errors?.[item.name]?.[0]}
-                        helperText={err?.data?.errors?.[item.name]?.[0]}
-                      />
+                      {item.type === "password" ? (
+                        <PasswordInput
+                          placeholder={item.placeholder}
+                          name={item.name}
+                          error={err?.data?.errors?.[item.name]?.[0]}
+                          helperText={err?.data?.errors?.[item.name]?.[0]}
+                          onChange={handleChange}
+                        />
+                      ) : (
+                        <TextField
+                          autoFocus={index === 0 ? true : false}
+                          color="secondary"
+                          required
+                          aria-required
+                          margin="normal"
+                          fullWidth
+                          // id={item.name}
+                          label={t(`Auth.${item.placeholder}`)}
+                          placeholder={t(`Auth.${item.placeholder}`)}
+                          name={item.name}
+                          type={item.type}
+                          onChange={handleChange}
+                          error={err?.data?.errors?.[item.name]?.[0]}
+                          id="filled-password-input"
+                          helperText={err?.data?.errors?.[item.name]?.[0]}
+                        />
+                      )}
                     </Grid>
                   );
                 })}
+
+                <Grid
+                  style={{ padding: "5px" }}
+                  item
+                  lg={login ? 12 : 6}
+                  md={login ? 12 : 6}
+                  sm={12}
+                  xs={12}
+                ></Grid>
 
                 <div className="flex-center">
                   <ReCAPTCHA
@@ -209,7 +249,7 @@ export default function LoginPage() {
                   variant="contained"
                   color="primary"
                   sx={{ mt: 3, mb: 2 }}
-                  disabled={reChecked ? false : true}
+                  disabled={reChecked !== null ? false : true}
                   loading={loading ? true : false}
                 >
                   {login ? t("Auth.SignIn") : t("Auth.SignUp")}
@@ -219,24 +259,34 @@ export default function LoginPage() {
             <Grid container>
               <Grid item xs>
                 {login ? (
-                  <Link href="#" variant="body2">
+                  <Typography
+                    onClick={() => setOpen(true)}
+                    href="#"
+                    variant="body2"
+                    className="pointer"
+                  >
                     {t("Auth.ForgotPassword")}
-                  </Link>
+                  </Typography>
                 ) : null}
               </Grid>
               <Grid item>
                 {login ? (
-                  <Link
+                  <Typography
+                    className="pointer"
                     onClick={() => setLogin(false)}
                     href="#"
                     variant="body2"
                   >
                     {t("Auth.Dont")} {t("Auth.SignUp")}
-                  </Link>
+                  </Typography>
                 ) : (
-                  <Link onClick={() => setLogin(true)} href="#" variant="body2">
+                  <Typography
+                    className="pointer"
+                    onClick={() => setLogin(true)}
+                    variant="body2"
+                  >
                     {t("Auth.Already")} {t("Auth.SignIn")}
-                  </Link>
+                  </Typography>
                 )}
               </Grid>
             </Grid>
