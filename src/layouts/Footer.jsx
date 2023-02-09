@@ -45,7 +45,7 @@ function Footer() {
         <Grid container>
           <Grid item lg={6} md={6} sm={12} className="flex-center">
             <div>
-              <img src="logo.png" />
+              <img src="/logo.png" />
               <Box marginLeft="20px">
                 <Facebook className="social-icon" />
                 <Twitter className="social-icon" />

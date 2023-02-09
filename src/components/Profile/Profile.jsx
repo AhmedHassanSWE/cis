@@ -7,17 +7,19 @@ import ProfileInvoices from "./ProfileInvoices";
 import ProfilePayments from "./ProfilePayments";
 import UserInfo from "./UserInfo";
 import { t } from "i18next";
+import { useSelector } from "react-redux";
 
 function Profile() {
   const [value, setValue] = React.useState(0);
+  const user = useSelector((state) => state.auth?.userData?.presonal_data);
 
   return (
     <div>
       <div className="flex-center">
-        <div className="profile-avatar">A</div>
+        <div className="profile-avatar">{user?.name?.charAt(0)}</div>
       </div>
       <div className="flex-center">
-        <Typography variant="h5">Ahmed Hassan</Typography>
+        <Typography variant="h5">{user?.name}</Typography>
       </div>
       <div className="flex-center">
         <Button variant="contained">

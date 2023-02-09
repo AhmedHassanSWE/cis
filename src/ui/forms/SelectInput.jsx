@@ -20,6 +20,8 @@ function SelectInput({
   sm,
   options,
 }) {
+  const locale = localStorage.getItem("i18nextLng");
+  const currentLocale = locale !== "ar" ? "en" : "ar";
   return (
     <Grid
       item
@@ -46,6 +48,13 @@ function SelectInput({
           color="secondary"
         >
           <MenuItem value="0">{placeholder}</MenuItem>
+          {options?.map((item, index) => {
+            return (
+              <MenuItem value={item?.details?.[currentLocale]}>
+                {item?.details?.[currentLocale]}
+              </MenuItem>
+            );
+          })}
         </Select>
         <FormHelperText className="form-error">
           {fieldError ? fieldError : null}

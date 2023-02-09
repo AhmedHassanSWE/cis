@@ -1,16 +1,22 @@
 import api from "../api";
 import { LOADING } from "./types";
 
-export const reduxGet = (endPoint, type) => (dispatch) => {
+export const reduxGet = (endPoint, type, token) => (dispatch) => {
   dispatch({
     type: LOADING,
   });
-  api.get(endPoint).then((res) => {
-    dispatch({
-      type: type,
-      payload: res?.data,
+  api
+    .get(endPoint, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => {
+      dispatch({
+        type: type,
+        payload: res?.data,
+      });
     });
-  });
 };
 
 export const emptyAction = (type) => (dispatch) => {

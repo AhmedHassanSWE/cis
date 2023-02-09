@@ -6,7 +6,7 @@
     "Publications": "إصدارات",
     "ContactUs": "تواصل معنا",
     "Support": "الدعم",
-    "Forms": "وثيقة التأمين",
+    "Forms": "وثائق التأمين",
     "Howitworks": "كيف نعمل",
     "MyProfile": "الملف الشخصي",
     "Profile": "الملف الشخصي",
@@ -74,7 +74,8 @@
     "Users": "4- المستفيدين",
     "Number": "عدد الورثة الشرعيين",
     "NameNumber": "اسم الوريث رقم",
-    "Submit": "تأكيد"
+    "Submit": "تأكيد",
+    "DocumentTypes": "انواع الوثائق"
   },
   "Profile": {
     "Profile": "الملف الشخصي",

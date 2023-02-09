@@ -20,7 +20,7 @@ function MyRouter() {
           <Route path="/support" element={<SupportPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/how" element={<HowitworksPage />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/form/:id" element={<Form />} />
           <Route path="/documents" element={<DocumentTypes />} />
         </Routes>
       </>

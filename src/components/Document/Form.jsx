@@ -16,11 +16,16 @@ import AdditionalDangers from "./AdditionalDangers";
 import { t } from "i18next";
 import UsersInfo from "./UsersInfo";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useFetch } from "../../hooks/useFetch";
+import LoaderPage from "../../pages/LoadPage";
 
 function Form() {
   const mode = useSelector((state) => state.theme.mode);
   const [fields, setFields] = React.useState({});
   const [value, setValue] = React.useState(0);
+  const { id } = useParams();
+  const data = useFetch(`get-specific-doc-type/${id}`);
   const handleChange = (e) => {
     if (e.target.type === "text" || e.target.type === "select") {
       // Text & Select Fields Case
@@ -47,21 +52,15 @@ function Form() {
 
   // Convert fields Objet to Form Data
   const formData = new FormData();
-
   formSchiema.map((parentItem, parentIndex) => {
     fields[parentItem.name]?.map((childItem, childIndex) => {
       formData.append(`${parentItem.name}`, childItem);
     });
   });
-
   formData.append("Key", "Value");
-
-  console.log("FORM DATTA", formData);
-
   React.useEffect(() => {
     axios.post(`to-link`, formData).catch((err) => console.log(err));
   }, [fields]);
-
   // formSchiema.map((parentItem, levelOneIndex) => {
   //   if (Array.isArray(fields[parentItem.name])) {
   //     fields[parentItem.name].map((childItem, levelTwoIndex) => {
@@ -73,7 +72,11 @@ function Form() {
   //   }
   // });
   const locale = localStorage.getItem("i18nextLng");
-  return (
+  const currentLocale = locale !== "ar" ? "en" : "ar";
+
+  return data === null ? (
+    <LoaderPage />
+  ) : (
     <div>
       <Container className={mode === "dark" ? "dark" : "light"}>
         <Card style={{ marginTop: "15px", padding: "15px" }}>
@@ -90,40 +93,31 @@ function Form() {
                   scrollButtons="auto"
                   aria-label="scrollable auto tabs example"
                 >
-                  <Tab
+                  {/* <Tab
                     onClick={() => setValue(0)}
                     label={t("Document.Basic")}
-                  />
-                  <Tab
-                    disabled
-                    onClick={() => setValue(1)}
-                    label={t("Document.AdditionalInfo")}
-                  />
-                  <Tab
-                    disabled
-                    onClick={() => setValue(2)}
-                    label={t("Document.AdditionalDangers")}
-                  />
-                  <Tab
-                    disabled
-                    onClick={() => setValue(3)}
-                    label={t("Document.Users")}
-                  />
+                  /> */}
+                  {data?.sub_documents?.map((item, index) => {
+                    return (
+                      <Tab
+                        onClick={() => setValue(1)}
+                        label={`${index + 1}- ${item?.title?.[currentLocale]}`}
+                      />
+                    );
+                  })}
                 </Tabs>
               </Box>
             </div>
-            <TabPanel value={0} index={0}>
+            {/* <TabPanel value={0} index={0}>
               <BasicInformation />
-            </TabPanel>
-            <TabPanel value={1} index={1}>
-              <AdditionalInformation />
-            </TabPanel>
-            <TabPanel value={2} index={2}>
-              <AdditionalDangers />
-            </TabPanel>
-            <TabPanel value={3} index={3}>
-              <UsersInfo />
-            </TabPanel>
+            </TabPanel> */}
+            {data?.sub_documents?.map((item, index) => {
+              return (
+                <TabPanel value={index} index={index}>
+                  <AdditionalInformation item={item} />
+                </TabPanel>
+              );
+            })}
           </TabContext>
         </Card>
       </Container>

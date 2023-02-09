@@ -14,8 +14,7 @@ const brandsReducer = (state = initialState, action) => {
     case GET_USER_DATA:
       return {
         ...state,
-        user: action.payload,
-        userCourses: action.payload?.myCourses,
+        userData: action.payload,
       };
     case USER_LOGIN:
       return {

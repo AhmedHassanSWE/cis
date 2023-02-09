@@ -6,7 +6,7 @@
     "ContactUs": "Contact Us",
     "Publications": "Publications",
     "Support": "Support",
-    "Forms": "Insurance Document",
+    "Forms": "Insurance Documents",
     "Howitworks": "How it works",
     "MyProfile": "My Profile",
     "Profile": "Profile",
@@ -74,7 +74,8 @@
     "Users": "4- Beneficiaries",
     "Number": "Number of legal heirs",
     "NameNumber": "Name of heir number",
-    "Submit": "SUBMIT"
+    "Submit": "SUBMIT",
+    "DocumentTypes": "Document Types"
   },
   "Profile": {
     "Profile": "Profile",

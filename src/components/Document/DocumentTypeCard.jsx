@@ -6,24 +6,27 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function DocumentTypeCard() {
+export default function DocumentTypeCard({ title, description, image, id }) {
   return (
-    <Link to="/form">
-      <Card sx={{ maxWidth: 345 }} style={{ marginBottom: "20px" }}>
+    <Link to={`/form/${id}`}>
+      <Card sx={{ width: 345 }} style={{ marginBottom: "20px" }}>
         <CardActionArea>
           <CardMedia
             component="img"
             height="140"
-            image="https://i.fbcd.co/products/resized/resized-750-500/1d83834ba8fa525bbff21a3f201cc93870cf12a7715bd8cf12a426fc71c15005.jpg"
+            image={`https://mahalatmasr.com/cis/public/${image}`}
             alt="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Car insurance
+              {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+            <Typography
+              style={{ height: 70 }}
+              variant="body2"
+              color="text.secondary"
+            >
+              {description}
             </Typography>
           </CardContent>
         </CardActionArea>

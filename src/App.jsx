@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./layouts/Navbar";
 import { ThemeProvider, createTheme, useTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TextInput from "./ui/forms/TextInput";
 import "./ui/forms/forms-ui.css";
 import { Button, Card, Grid, Typography } from "@mui/material";
@@ -14,6 +14,8 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import Footer from "./layouts/Footer";
 import { useLocation } from "react-router-dom";
+import { reduxGet } from "./redux/actions/reusableActions";
+import { GET_USER_DATA } from "./redux/actions/types";
 
 const cacheRtl = createCache({
   key: "muirtl",
@@ -71,6 +73,8 @@ function App() {
   });
 
   const auth = user?.token ? true : false;
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth?.user?.token);
   // const auth = true;
   React.useEffect(() => {
     localStorage.setItem("NEXT", "EN");
@@ -85,6 +89,9 @@ function App() {
 
   console.log("VITE LOCAL", localStorage.getItem("i18nextLng"));
   const locale = localStorage.getItem("i18nextLng");
+  React.useEffect(() => {
+    dispatch(reduxGet("profile", GET_USER_DATA, token));
+  }, []);
   return locale !== "ar" ? (
     <div className={mode === "dark" ? "dark" : "light"}>
       <ThemeProvider theme={mode === "dark" ? darkTheme : lightTheme}>

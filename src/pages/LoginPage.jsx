@@ -104,6 +104,8 @@ export default function LoginPage() {
       registerFunc();
     }
   };
+
+  console.log("LOGIN ERROR", loginError);
   return (
     <Grid
       style={{ position: "relative" }}
@@ -227,6 +229,9 @@ export default function LoginPage() {
                   );
                 })}
 
+                {login ? (
+                  <Typography color="red">{loginError?.data?.msg}</Typography>
+                ) : null}
                 <Grid
                   style={{ padding: "5px" }}
                   item

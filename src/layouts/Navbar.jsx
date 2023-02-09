@@ -96,7 +96,7 @@ function Navbar(props) {
             }}
           >
             <Link to="/">
-              <img className="nav-logo" src="./logo.png" />
+              <img className="nav-logo" src="/logo.png" />
             </Link>
           </Box>
 
@@ -260,7 +260,7 @@ function Navbar(props) {
             <Box marginLeft="30px">
               <img
                 className="nav-logo-mobile"
-                src="./logo.png"
+                src="/logo.png"
                 style={{ height: "50px" }}
               />
             </Box>

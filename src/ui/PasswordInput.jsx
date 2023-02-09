@@ -3,7 +3,8 @@ import {
   RemoveRedEyeSharp,
   VisibilityOff,
 } from "@mui/icons-material";
-import { TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
+import { t } from "i18next";
 import React from "react";
 
 function PasswordInput({ placeholder, name, error, helperText, onChange }) {
@@ -12,8 +13,8 @@ function PasswordInput({ placeholder, name, error, helperText, onChange }) {
     <div style={{ display: "flex", alignItems: "center" }}>
       <TextField
         color="secondary"
-        label={placeholder}
-        placeholder={placeholder}
+        label={t(`Auth.${placeholder}`)}
+        placeholder={t(`Auth.${placeholder}`)}
         fullWidth
         type={showPassword ? "text" : "password"}
         required
@@ -22,17 +23,17 @@ function PasswordInput({ placeholder, name, error, helperText, onChange }) {
         helperText={helperText}
         onChange={onChange}
       />
-      <div
+      <Box
         style={{
           zIndex: "2000",
           cursor: "pointer",
           marginTop: "6px",
-          marginLeft: "-40px",
         }}
         onClick={() => setShowPassord(!showPassword)}
+        marginLeft="-40px"
       >
         {showPassword ? <VisibilityOff /> : <RemoveRedEye />}
-      </div>
+      </Box>
     </div>
   );
 }
